@@ -34,16 +34,6 @@ export function InputArea({
         </button>
       </div>
 
-      <label className="mt-4 block">
-        <span className="mb-2 block text-sm font-medium text-slate-600">补充上下文（可选）</span>
-        <input
-          value={context}
-          onChange={(event) => onContextChange(event.target.value)}
-          placeholder="例如：电商首页改版、支付链路优化、内部管理后台"
-          className="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-sky"
-        />
-      </label>
-
       <label className="mt-4 flex min-h-0 flex-1 flex-col">
         <span className="mb-2 block text-sm font-medium text-slate-600">主要内容</span>
         <textarea
@@ -52,6 +42,16 @@ export function InputArea({
           placeholder="输入 PM 需求或开发方案..."
           rows={12}
           className="min-h-0 w-full flex-1 resize-none rounded-[24px] border border-slate-200 px-4 py-4 text-sm leading-7 outline-none transition focus:border-sky"
+        />
+      </label>
+
+      <label className="mt-4 block">
+        <span className="mb-2 block text-sm font-medium text-slate-600">补充上下文（可选）</span>
+        <input
+          value={context}
+          onChange={(event) => onContextChange(event.target.value)}
+          placeholder="例如：电商首页改版、支付链路优化、内部管理后台"
+          className="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-sky"
         />
       </label>
     </section>
