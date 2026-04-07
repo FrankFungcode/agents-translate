@@ -46,6 +46,12 @@ curl https://<your-worker-domain>/api/health
 - Build output：`apps/web/dist`
 - Root directory：`/`
 
+建议在 Pages 环境变量中新增：
+
+- `VITE_API_BASE_URL=https://<your-worker-domain>`
+
+这样前端会直接请求 Worker 的 `/api/*`，不依赖本地 `vite proxy`。
+
 ## 4. 环境变量建议
 
 Workers（`apps/api/wrangler.toml` + secret）：
@@ -56,8 +62,8 @@ Workers（`apps/api/wrangler.toml` + secret）：
 
 Pages：
 
-- 如需跨域直连 Worker，可在前端环境变量中配置 API 基础地址
-- 默认可继续使用 `/api` 代理策略（按实际部署方式调整）
+- `VITE_API_BASE_URL`：Worker 域名，例如 `https://agents-translate-api.<subdomain>.workers.dev`
+- 如果你绑定了自定义 API 域名，也可以填自定义域名
 
 ## 5. 生产验收
 

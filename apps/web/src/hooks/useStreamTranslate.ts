@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import type { Direction, Perspective, TranslateRequest } from '../lib/types';
+import { getApiBaseUrl } from '../lib/env';
 
 interface StreamResult {
   output: string;
@@ -56,7 +57,10 @@ export function useStreamTranslate(): StreamResult {
       query.set('context', input.context);
     }
 
-    const source = new EventSource(`/api/translate/stream?${query.toString()}`);
+    const baseUrl = getApiBaseUrl();
+    const source = new EventSource(
+      `${baseUrl}/api/translate/stream?${query.toString()}`,
+    );
     eventSourceRef.current = source;
 
     source.onmessage = (event) => {

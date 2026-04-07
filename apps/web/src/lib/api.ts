@@ -1,7 +1,9 @@
 import type { TranslateRequest, TranslateResponse } from './types';
+import { getApiBaseUrl } from './env';
 
 export async function translate(input: TranslateRequest): Promise<TranslateResponse> {
-  const response = await fetch('/api/translate', {
+  const baseUrl = getApiBaseUrl();
+  const response = await fetch(`${baseUrl}/api/translate`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

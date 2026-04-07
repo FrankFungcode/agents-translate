@@ -23,8 +23,21 @@ app.use(
   '*',
   cors({
     origin: (origin, c) => {
-      const allowed = c.env.CORS_ORIGIN ?? '*';
-      return allowed === '*' ? origin ?? '*' : allowed;
+      const allowedRaw = c.env.CORS_ORIGIN ?? '*';
+      if (allowedRaw === '*') {
+        return origin ?? '*';
+      }
+
+      const allowList = allowedRaw
+        .split(',')
+        .map((item) => item.trim())
+        .filter(Boolean);
+
+      if (!origin) {
+        return allowList[0] ?? '*';
+      }
+
+      return allowList.includes(origin) ? origin : allowList[0] ?? '*';
     },
   }),
 );
