@@ -30,7 +30,7 @@ app.use(
 
       const allowList = allowedRaw
         .split(',')
-        .map((item) => item.trim())
+        .map((item: string) => item.trim())
         .filter(Boolean);
 
       if (!origin) {

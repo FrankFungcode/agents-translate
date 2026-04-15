@@ -26,23 +26,23 @@ interface Props {
 
 export function DirectionSelector({ value, onChange }: Props) {
   return (
-    <div className="grid gap-3 md:grid-cols-3">
+    <div className="grid gap-3 sm:grid-cols-3">
       {options.map((option) => (
         <button
           key={option.value}
           type="button"
           onClick={() => onChange(option.value)}
           className={clsx(
-            'rounded-3xl border px-4 py-3 text-left transition',
+            'rounded-[24px] border px-4 py-3.5 text-left transition',
             value === option.value
               ? 'border-signal bg-white shadow-soft'
               : 'border-slate-200 bg-white/70 hover:border-sky',
           )}
         >
-          <div className="text-xs font-semibold uppercase tracking-[0.18em] text-sky whitespace-nowrap">
+          <div className="text-xs font-semibold uppercase tracking-[0.18em] text-sky">
             {option.title}
           </div>
-          <div className="mt-1 text-xs text-slate-600 whitespace-nowrap">{option.description}</div>
+          <div className="mt-1 text-sm leading-5 text-slate-600">{option.description}</div>
         </button>
       ))}
     </div>

@@ -57,9 +57,9 @@ export function TranslatePanel() {
   };
 
   return (
-    <div className="mx-auto flex h-full max-w-7xl flex-col px-4 sm:px-6 lg:px-8">
-      <div className="grid min-h-0 flex-1 gap-4 lg:grid-cols-[1.05fr_0.95fr]">
-        <div className="flex min-h-0 flex-col gap-4">
+    <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col px-4 sm:px-6 lg:min-h-0 lg:px-8">
+      <div className="grid gap-4 lg:min-h-0 lg:flex-1 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="flex flex-col gap-4 lg:min-h-0">
           <DirectionSelector value={direction} onChange={setDirection} />
           <InputArea
             content={activeSession.content}

@@ -18,7 +18,7 @@ export function OutputArea({
   detectedPerspective,
 }: Props) {
   return (
-    <section className="flex min-h-0 flex-col rounded-[28px] bg-[#102033] p-5 text-white shadow-soft">
+    <section className="flex min-h-[320px] flex-col rounded-[28px] bg-[#102033] p-4 text-white shadow-soft sm:p-5 lg:min-h-0">
       <div className="flex flex-wrap items-center gap-3">
         <h2 className="text-lg font-semibold">翻译结果</h2>
         {isStreaming ? (
@@ -33,7 +33,7 @@ export function OutputArea({
         ) : null}
       </div>
 
-      <div className="mt-4 min-h-0 flex-1 overflow-hidden rounded-[24px] border border-white/10 bg-white/5">
+      <div className="mt-4 min-h-[220px] flex-1 overflow-hidden rounded-[24px] border border-white/10 bg-white/5 lg:min-h-0">
         <div className="h-full overflow-y-auto p-5">
           {error ? (
             <div className="rounded-2xl bg-red-500/15 p-4 text-xs text-red-100">{error}</div>
@@ -46,7 +46,7 @@ export function OutputArea({
           ) : null}
 
           {output ? (
-            <article className="prose prose-sm prose-invert max-w-none text-xs leading-6 prose-headings:mb-3 prose-headings:text-[15px] prose-headings:text-white prose-p:text-[13px] prose-p:text-white/85 prose-strong:text-white prose-li:text-[13px] prose-li:text-white/80">
+            <article className="prose prose-sm prose-invert max-w-none break-words text-xs leading-6 prose-headings:mb-3 prose-headings:text-[15px] prose-headings:text-white prose-p:text-[13px] prose-p:text-white/85 prose-strong:text-white prose-li:text-[13px] prose-li:text-white/80">
               <ReactMarkdown remarkPlugins={[remarkGfm]}>{output}</ReactMarkdown>
             </article>
           ) : null}
